@@ -363,14 +363,14 @@ INSERT INTO `canciones` (`id`, `titulo`, `id_album`) VALUES
 
 CREATE TABLE `decadas` (
   `id` int(11) NOT NULL,
-  `decada` year(4) NOT NULL
+  `year` year(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `decadas`
 --
 
-INSERT INTO `decadas` (`id`, `decada`) VALUES
+INSERT INTO `decadas` (`id`, `year`) VALUES
 (1, '1970'),
 (2, '1980'),
 (3, '1990'),
