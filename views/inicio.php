@@ -1,9 +1,7 @@
 <?php
 
-require_once "libraries/albumes.php";
-
-$destacados = discos_destacados();
-$discos = todos_los_discos();
+$destacados = (new Album())->destacados();
+$albumes = (new Album())->todos_los_albumes();
 
 ?>
 
@@ -20,18 +18,18 @@ $discos = todos_los_discos();
             <div class="carousel-inner">
                 <?php if (count($destacados)) { ?>
                     <div class="carousel-item active">
-                        <img src="img/portadas/<?= $destacados[0]["portada"] ?>" class="d-block w-100" alt='Portada del álbum "<?= $destacados[0]["titulo"] ?>"'>
+                        <img src="img/portadas/<?= $destacados[0]->getPortada() ?>" class="d-block w-100" alt='Portada del álbum "<?= $destacados[0]->getTitulo() ?>"'>
                         <div class="carousel-caption d-none d-md-block">
-                            <h5><?= $destacados[0]["titulo"] ?></h5>
-                            <p><?= $destacados[0]["artista"] ?> - <?= $destacados[0]["lanzamiento"] ?></p>
+                            <h5><?= $destacados[0]->getTitulo() ?></h5>
+                            <p><?= $destacados[0]->getArtista() ?> - <?= $destacados[0]->getLanzamiento() ?></p>
                         </div>
                     </div>
                     <?php for ($i = 1; $i < 4; $i++) { ?>
                         <div class="carousel-item">
-                            <img src="img/portadas/<?= $destacados[$i]["portada"] ?>" class="d-block w-100" alt='Portada del álbum "<?= $destacados[$i]["titulo"] ?>"'>
+                            <img src="img/portadas/<?= $destacados[$i]->getPortada() ?>" class="d-block w-100" alt='Portada del álbum "<?= $destacados[$i]->getTitulo() ?>"'>
                             <div class="carousel-caption d-none d-md-block">
-                                <h5 style="color: #FFB600;"><?= $destacados[$i]["titulo"] ?></h5>
-                                <p style="color: #FFB600;"><?= $destacados[$i]["artista"] ?> - <?= $destacados[$i]["lanzamiento"] ?></p>
+                                <h5 style="color: #FFB600;"><?= $destacados[$i]->getTitulo() ?></h5>
+                                <p style="color: #FFB600;"><?= $destacados[$i]->getArtista() ?> - <?= $destacados[$i]->getLanzamiento() ?></p>
                             </div>
                         </div>
                     <?php } ?>
@@ -56,15 +54,15 @@ $discos = todos_los_discos();
 </div>
 
 <div class="row">
-    <?php if (count($discos)) { ?>
-        <?php foreach ($discos as $disco) { ?>
+    <?php if (count($albumes)) { ?>
+        <?php foreach ($albumes as $a) { ?>
             <div class="col-3">
                 <div class="card mb-3" style="max-width: 18rem; background-color: #F8F4E1; color: #543310; border: #74512D 3px solid;">
-                    <img src="img/portadas/<?= $disco["portada"] ?>" class="card-img-top" alt='Portada del álbum "<?= $disco["portada"] ?>"'>
+                    <img src="img/portadas/<?= $a->getPortada() ?>" class="card-img-top" alt='Portada del álbum "<?= $a->getTitulo() ?>"'>
                     <div class="card-body">
-                        <h5 class="card-title fw-bold text-center"><?= $disco["titulo"] ?></h5>
-                        <p class="card-text"><span class="fw-bold fs-6">Artista:</span> <?= $disco["artista"] ?></p>
-                        <a href="index.php?sec=detalle_disco&id=<?= $disco["id"] ?>" class="btn text-center d-flex justify-content-center" style="background-color: #543310; color: #F8F4E1;">Ver más</a>
+                        <h5 class="card-title fw-bold text-center"><?= $a->getTitulo() ?></h5>
+                        <p class="card-text"><span class="fw-bold fs-6">Artista:</span> <?= $a->getArtista() ?></p>
+                        <a href="index.php?sec=detalle_disco&id=<?= $a->getId() ?>" class="btn text-center d-flex justify-content-center" style="background-color: #543310; color: #F8F4E1;">Ver más</a>
                     </div>
                 </div>
             </div>

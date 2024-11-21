@@ -18,6 +18,22 @@ class Cancion {
         $canciones = $PDOStatement->fetchAll();
         return $canciones;
     }
+
+    // Devuelve las canciones de un álbum en particular
+    public function canciones_x_album(int $id_album) : array {
+        $canciones = [];
+        $conexion = (new Conexion())->getConexion();
+        $query = "SELECT * FROM canciones WHERE id_album = :id_album";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute(
+            [
+                "id_album" => $id_album
+            ]
+        );
+        $canciones = $PDOStatement->fetchAll();
+        return $canciones;
+    }
     
     // Devuelve una canción en particular
     public function cancion_x_id(int $id_cancion) {

@@ -25,6 +25,18 @@ class Album {
         return $albumes;
     }
 
+    // Devuelve los álbumes destacados
+    public function destacados() : array {
+        $destacados = [];
+        $conexion = (new Conexion())->getConexion();
+        $query = "SELECT * FROM albumes WHERE destacado = 1";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute();
+        $destacados = $PDOStatement->fetchAll();
+        return $destacados;
+    }
+
     // Devuelve los álbumes de una década en particular
     public function albumes_x_decada(int $id_decada) : array {
         $albumes = [];

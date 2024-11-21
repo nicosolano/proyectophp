@@ -1,5 +1,7 @@
 <?php
 
+    require_once "functions/autoload.php";
+
     $secciones_validas = [
         "inicio" => [
             "titulo" => "Inicio"
@@ -27,6 +29,8 @@
         $vista = "404";
         $titulo = "Página no Encontrada";
     }
+
+    $decadas = (new Decada())->todas_las_decadas();
 
 ?>
 
@@ -91,18 +95,11 @@
                                 --bs-dropdown-link-active-bg: #543310;
                                 --bs-dropdown-link-active-color: #F8F4E1;
                             ">
-                                <li>
-                                    <a class="dropdown-item" href="index.php?sec=discos&dec=70">Los 70's</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="index.php?sec=discos&dec=80">Los 80's</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="index.php?sec=discos&dec=90">Los 90's</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="index.php?sec=discos&dec=2000">Los 2000's</a>
-                                </li>
+                                <?php foreach($decadas as $d){ ?>
+                                    <li>
+                                        <a class="dropdown-item" href="index.php?sec=discos&dec=<?= $d->getId() ?>"><?= $d->getYear() ?></a>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </li>
                         <li class="nav-item fw-bold me-3">
