@@ -395,7 +395,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre_usuario`, `nombre_completo`, `email`, `password`) VALUES
-(1, 'nicolas', 'Nicolás Solano', 'correo@correo.com', '$2y$10$8pdFD5JBbyjkcXw9hvJbS.mpHmVabKSm2vrOCelpsOhrBRfIGXSBO');
+(1, 'nicolas', 'Nicolás Solano', 'correo@correo.com', '$2y$10$grgD0r1de4cbrDvzV8JDC.EZoQbJlt6VFT3UCJ0iDBcRci0y607ca');
 
 --
 -- Índices para tablas volcadas

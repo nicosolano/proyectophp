@@ -11,7 +11,7 @@
             "titulo" => "Panel de Control",
             "restringido" => TRUE
         ],
-        "admin_album" => [
+        "admin_albumes" => [
             "titulo" => "Administrador de Álbumes",
             "restringido" => TRUE
         ],
@@ -26,12 +26,28 @@
         "delete_album" => [
             "titulo" => "Eliminar Álbum",
             "restringido" => TRUE
+        ],
+        "admin_canciones" => [
+            "titulo" => "Administrador de Canciones",
+            "restringido" => TRUE
+        ],
+        "add_cancion" => [
+            "titulo" => "Agregar Canción",
+            "restringido" => TRUE
+        ],
+        "edit_cancion" => [
+            "titulo" => "Editar Canción",
+            "restringido" => TRUE
+        ],
+        "delete_cancion" => [
+            "titulo" => "Eliminar Canción",
+            "rstringido" => TRUE
         ]
     ];
 
     $seccion = $_GET["sec"] ?? "dashboard";
 
-    if (array_key_exists($seccion,$secciones_validas)) {
+    if (array_key_exists($seccion, $secciones_validas)) {
         $vista = $seccion;
         if($secciones_validas[$seccion]["restringido"]){
             (new Autenticacion())->verify();
@@ -77,7 +93,7 @@
                             <a class="nav-link fw-bold me-1 <?= $userData ? "" : "d-none" ?>" href="index.php?sec=dashboard" style="color: #F8F4E1">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold me-1 <?= $userData ? "" : "d-none" ?>" href="index.php?sec=admin_album" style="color: #F8F4E1">Admin de Álbumes</a>
+                            <a class="nav-link fw-bold me-1 <?= $userData ? "" : "d-none" ?>" href="index.php?sec=admin_albumes" style="color: #F8F4E1">Admin de Álbumes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fw-bold me-1 <?= $userData ? "d-none" : "" ?>" href="index.php?sec=login" style="color: #F8F4E1">Login</a>

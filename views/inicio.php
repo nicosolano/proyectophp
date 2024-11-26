@@ -60,11 +60,11 @@ $albumes = (new Album())->todos_los_albumes();
                 <div class="col-3">
                     <div class="card m-3">
                         <img src="img/portadas/<?= $a->getPortada() ?>" class="card-img-top" alt='Portada del álbum "<?= $a->getTitulo() ?>"'>
-                        <!-- <div class="card-body">
+                        <div class="card-body">
                             <h5 class="card-title fw-bold text-center"><?= $a->getTitulo() ?></h5>
                             <p class="card-text"><span class="fw-bold fs-6">Artista:</span> <?= $a->getArtista() ?></p>
                             <a href="index.php?sec=detalle_disco&id=<?= $a->getId() ?>" class="btn text-center d-flex justify-content-center" style="background-color: #543310; color: #F8F4E1;">Ver más</a>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             <?php } ?>
