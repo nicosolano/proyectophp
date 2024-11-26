@@ -2,7 +2,8 @@
 
 class Conexion {
     // Atributos
-    public const DB_SERVER = "localhost";
+    // public const DB_SERVER = "localhost";
+    public const DB_SERVER = "127.0.0.1:3308";
     public const DB_USER = "root";
     public const DB_PASS = "";
     public const DB_NAME = "vinillum";

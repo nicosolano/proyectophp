@@ -49,27 +49,29 @@ $albumes = (new Album())->todos_los_albumes();
 
 <div class="row">
     <div class="col-12 p-5">
-        <h1 class="text-center fw-bold fs-3 p-3 rounded" style="background-color: #543310; color: #F8F4E1">Todos nuestros discos:</h1>
+        <h1 class="text-center fw-bold fs-3 p-3 rounded" style="background-color: #543310;">Todos nuestros discos:</h1>
     </div>
 </div>
 
-<div class="row">
-    <?php if (count($albumes)) { ?>
-        <?php foreach ($albumes as $a) { ?>
-            <div class="col-3">
-                <div class="card mb-3" style="max-width: 18rem; background-color: #F8F4E1; color: #543310; border: #74512D 3px solid;">
-                    <img src="img/portadas/<?= $a->getPortada() ?>" class="card-img-top" alt='Portada del álbum "<?= $a->getTitulo() ?>"'>
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold text-center"><?= $a->getTitulo() ?></h5>
-                        <p class="card-text"><span class="fw-bold fs-6">Artista:</span> <?= $a->getArtista() ?></p>
-                        <a href="index.php?sec=detalle_disco&id=<?= $a->getId() ?>" class="btn text-center d-flex justify-content-center" style="background-color: #543310; color: #F8F4E1;">Ver más</a>
+<div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+        <?php if (count($albumes)) { ?>
+            <?php foreach ($albumes as $a) { ?>
+                <div class="col-3">
+                    <div class="card m-3">
+                        <img src="img/portadas/<?= $a->getPortada() ?>" class="card-img-top" alt='Portada del álbum "<?= $a->getTitulo() ?>"'>
+                        <!-- <div class="card-body">
+                            <h5 class="card-title fw-bold text-center"><?= $a->getTitulo() ?></h5>
+                            <p class="card-text"><span class="fw-bold fs-6">Artista:</span> <?= $a->getArtista() ?></p>
+                            <a href="index.php?sec=detalle_disco&id=<?= $a->getId() ?>" class="btn text-center d-flex justify-content-center" style="background-color: #543310; color: #F8F4E1;">Ver más</a>
+                        </div> -->
                     </div>
                 </div>
+            <?php } ?>
+        <?php } else { ?>
+            <div class="col-12">
+                <p class="text-center text-danger fs-3">No se ha encontrado el disco...</p>
             </div>
         <?php } ?>
-    <?php } else { ?>
-        <div class="col-12">
-            <p class="text-center text-danger fs-3">No se ha encontrado el disco...</p>
-        </div>
-    <?php } ?>
+    </div>
 </div>

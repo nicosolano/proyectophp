@@ -1,0 +1,45 @@
+/* DE COLORES:
+#F8F4E1
+#AF8F6F
+#74512D
+#543310 */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+body {
+    font-family: "Playfair Display", serif;
+    background-color: #F8F4E1;
+}
+
+header {
+    margin: 0 auto;
+    background-color: #543310;
+}
+
+main {
+    margin: 0 auto;
+    min-height: 600px;
+}
+
+h1 {
+    color: #F8F4E1;
+}
+
+.card {
+    max-width: 18rem;
+    background-color: #F8F4E1;
+    color: #543310;
+    border: #74512D 3px solid;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: scale(108%);
+    transform: rotate3d();
+}
+
+footer {
+    margin: 0 auto;
+    background-color: #543310;
+    color: #F8F4E1;
+}
