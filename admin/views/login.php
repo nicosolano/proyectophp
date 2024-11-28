@@ -15,6 +15,4 @@
             </form>
         </div>
     </div>
-
-    <!-- <p><?= password_hash("1234", PASSWORD_DEFAULT) ?></p> -->
 </div>

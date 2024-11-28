@@ -91,15 +91,14 @@ class Album {
     }
 
     // Método para insertar un nuevo álbum
-    public function edit($id_decada, $portada, $titulo, $artista, $lanzamiento, $duracion, $destacado, $precio, $id){
+    public function edit($id_decada, $titulo, $artista, $lanzamiento, $duracion, $destacado, $precio, $id){
         $conexion = (new Conexion())->getConexion();
-        $query = "UPDATE albumes SET id_decada = :id_decada, portada = :portada, titulo = :titulo, artista = :artista, lanzamiento = :lanzamiento, duracion = :duracion, destacado = :destacado, precio = :precio WHERE id = :id";
+        $query = "UPDATE albumes SET id_decada = :id_decada, titulo = :titulo, artista = :artista, lanzamiento = :lanzamiento, duracion = :duracion, destacado = :destacado, precio = :precio WHERE id = :id";
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute(
             [
                 "id" => $id,
                 "id_decada" => $id_decada,
-                "portada" => $portada,
                 "titulo" => $titulo,
                 "artista" => $artista,
                 "lanzamiento" => $lanzamiento,

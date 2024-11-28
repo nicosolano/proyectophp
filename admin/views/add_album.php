@@ -7,7 +7,7 @@ $decadas = (new Decada())->todas_las_decadas();
 <div class="container">
     <div class="row my-5">
         <div class="col">
-            <h1 class="text-center mb-5">Agregar Nuevo Álbum</h1>
+            <h1 class="text-center mb-5" style="color: #543310;">Agregar Nuevo Álbum</h1>
             <div class="row mb-5 d-flex align-items-center">
                 <form class="row g-3" action="actions/add_album_acc.php" method="POST" enctype="multipart/form-data">
                     <div class="col-6 mb-3">

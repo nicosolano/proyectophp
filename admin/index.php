@@ -41,7 +41,7 @@
         ],
         "delete_cancion" => [
             "titulo" => "Eliminar Canción",
-            "rstringido" => TRUE
+            "restringido" => TRUE
         ]
     ];
 
@@ -94,6 +94,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fw-bold me-1 <?= $userData ? "" : "d-none" ?>" href="index.php?sec=admin_albumes" style="color: #F8F4E1">Admin de Álbumes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold me-1 <?= $userData ? "" : "d-none" ?>" href="index.php?sec=admin_canciones" style="color: #F8F4E1">Admin de Canciones</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fw-bold me-1 <?= $userData ? "d-none" : "" ?>" href="index.php?sec=login" style="color: #F8F4E1">Login</a>

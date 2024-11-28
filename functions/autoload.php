@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function autoloadClases($nombreClase){
     $archivoClase = __DIR__ . "/../classes/$nombreClase.php";
     if(file_exists($archivoClase)){

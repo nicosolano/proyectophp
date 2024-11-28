@@ -38,7 +38,7 @@ class Cancion {
     // Devuelve una canción en particular
     public function cancion_x_id(int $id_cancion) {
         $conexion = (new Conexion())->getConexion();
-        $query = "SELECT * FROM decadas WHERE id = :id_cancion";
+        $query = "SELECT * FROM canciones WHERE id = :id_cancion";
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
         $PDOStatement->execute(
@@ -53,6 +53,41 @@ class Cancion {
         return $cancion;
     }
 
+    // Método para insertar una nueva cancion
+    public function insert($titulo, $id_album){
+        $conexion = (new Conexion())->getConexion();
+        $query = "INSERT INTO canciones VALUES (NULL, :titulo, :id_album)";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute(
+            [
+                "titulo" => $titulo,
+                "id_album" => $id_album
+            ]
+        );
+    }
+
+    // Método para insertar un nuevo álbum
+    public function edit($titulo, $id_album, $id){
+        $conexion = (new Conexion())->getConexion();
+        $query = "UPDATE canciones SET titulo = :titulo, id_album = :id_album WHERE id = :id";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute(
+            [
+                "id" => $id,
+                "titulo" => $titulo,
+                "id_album" => $id_album
+            ]
+        );
+    }
+
+    // Borrar Álbum
+    public function delete(){
+        $conexion = (new Conexion())->getConexion();
+        $query = "DELETE FROM canciones WHERE id = ?";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([$this->id]);
+    }
+    
     // Getters
     public function getId(){
         return $this->id;

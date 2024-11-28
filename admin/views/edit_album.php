@@ -9,7 +9,7 @@ $decadas = (new Decada())->todas_las_decadas();
 <div class="container">
     <div class="row my-5">
         <div class="col">
-            <h1 class="text-center mb-5">Editar Álbum</h1>
+            <h1 class="text-center mb-5" style="color: #543310;">Editar Álbum</h1>
             <div class="row mb-5 d-flex align-items-center">
                 <form class="row g-3" action="actions/edit_album_acc.php?id=<?= $album->getId() ?>" method="POST" enctype="multipart/form-data">
                     <div class="col-6 mb-3">

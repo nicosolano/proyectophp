@@ -7,7 +7,7 @@ $albumes = (new Album())->todos_los_albumes();
 <div class="container">
     <div class="row my-5">
         <div class="col">
-            <h1 class="text-center mb-5">Administración de Álbumes</h1>
+            <h1 class="text-center mb-5" style="color: #543310;">Administración de Álbumes</h1>
             <div class="row mb-5 d-flex align-items-center">
                 <table class="table">
                     <thead>
