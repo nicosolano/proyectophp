@@ -34,8 +34,8 @@ h1 {
 }
 
 .card:hover {
-    transform: scale(108%);
-    transform: rotate3d();
+    transform-origin: center;
+    transform: scale(108%) ;
 }
 
 footer {
