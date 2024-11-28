@@ -37,7 +37,7 @@ $fin = $inicio + 25;
                     </tbody>
                 </table>
                 <ul class="list-group list-group-horizontal d-flex justify-content-center">
-                    <?php for($pag; $pag <= $paginas; $pag++){ ?>
+                    <?php for($pag=1; $pag <= $paginas; $pag++){ ?>
                         <a href="index.php?sec=admin_canciones&pag=<?= $pag ?>">
                             <li class="list-group-item"><?= $pag ?></li>
                         </a>
