@@ -2,7 +2,7 @@
 
 $canciones = (new Cancion())->todas_las_canciones();
 $pag = $_GET["pag"] ?? 1;
-$paginas = intdiv(count($canciones), 25);
+$paginas = intdiv(count($canciones), 25) + 1;
 $inicio = ($pag - 1) * 25;
 $fin = $inicio + 25;
 
@@ -24,15 +24,17 @@ $fin = $inicio + 25;
                     </thead>
                     <tbody>
                         <?php for ($inicio; $inicio < $fin; $inicio++) { ?>
-                            <tr>
-                                <th scope="row"><?= $canciones[$inicio]->getId() ?></th>
-                                <td><?= $canciones[$inicio]->getTitulo() ?></td>
-                                <td><?= $canciones[$inicio]->getAlbum() ?></td>
-                                <td>
-                                    <a class="btn btn-warning" href="index.php?sec=edit_cancion&id=<?= $canciones[$inicio]->getId() ?>">Editar</a>
-                                    <a class="btn btn-danger" href="index.php?sec=delete_cancion&id=<?= $canciones[$inicio]->getId() ?>">Eliminar</a>
-                                </td>
-                            </tr>
+                            <?php if(isset($canciones[$inicio])){ ?>
+                                <tr>
+                                    <th scope="row"><?= $canciones[$inicio]->getId() ?></th>
+                                    <td><?= $canciones[$inicio]->getTitulo() ?></td>
+                                    <td><?= $canciones[$inicio]->getAlbum() ?></td>
+                                    <td>
+                                        <a class="btn btn-warning" href="index.php?sec=edit_cancion&id=<?= $canciones[$inicio]->getId() ?>">Editar</a>
+                                        <a class="btn btn-danger" href="index.php?sec=delete_cancion&id=<?= $canciones[$inicio]->getId() ?>">Eliminar</a>
+                                    </td>
+                                </tr>
+                            <?php } ?>
                         <?php } ?>
                     </tbody>
                 </table>
