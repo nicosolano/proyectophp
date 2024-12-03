@@ -29,10 +29,10 @@ $fin = $inicio + $limite;
                     <select class="form-select" name="id_album" id="id_album" required>
                         <option value="0" selected>Todos los álbumes</option>
                         <?php foreach ($albumes as $a) { ?>
-                            <option value="<?= $a->getId() ?>"><?= $a->getTitulo() ?></option>
+                            <option value="<?= $a->getId() ?>" <?= $a->getId() == $id_album ? "selected" : "" ?>><?= $a->getTitulo() ?></option>
                         <?php } ?>
                     </select>
-                    <button class="btn btn-primary" type="submit">Buscar</button>
+                    <button class="btn btn-primary" type="submit">Filtrar</button>
                 </form>
             </div>
             <div class="row mb-5 d-flex justify-content-center align-items-center">
