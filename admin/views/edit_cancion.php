@@ -1,6 +1,7 @@
 <?php
 
-$id = $_GET["id"];
+$pag = $_GET["pag"] ?? 1;
+$id = $_GET["id"] ?? FALSE;
 $cancion = (new Cancion())->cancion_x_id($id);
 $albumes = (new Album())->todos_los_albumes();
 
@@ -11,7 +12,7 @@ $albumes = (new Album())->todos_los_albumes();
         <div class="col">
             <h1 class="text-center mb-5" style="color: #543310;">Editar Canción</h1>
             <div class="row mb-5 d-flex align-items-center">
-            <form class="row g-3" action="actions/edit_cancion_acc.php?id=<?= $cancion->getId() ?>" method="POST">
+            <form class="row g-3" action="actions/edit_cancion_acc.php?pag=<?= $pag ?>&id=<?= $cancion->getId() ?>" method="POST">
                     <div class="col-6 mb-3">
                         <label class="form-label" for="titulo">Título:</label>
                         <input class="form-control" type="text" name="titulo" id="titulo" value="<?= $cancion->getTitulo() ?>" required>

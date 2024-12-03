@@ -1,5 +1,6 @@
 <?php
 
+$pag = $_GET["pag"] ?? 1;
 $albumes = (new Album())->todos_los_albumes();
 
 ?>
@@ -8,8 +9,11 @@ $albumes = (new Album())->todos_los_albumes();
     <div class="row my-5">
         <div class="col">
             <h1 class="text-center mb-5" style="color: #543310;">Agregar Nueva Canción</h1>
+            <div>
+                <?= (new Alerta())->get_alertas() ?>
+            </div>
             <div class="row mb-5 d-flex align-items-center">
-                <form class="row g-3" action="actions/add_cancion_acc.php" method="POST">
+                <form class="row g-3" action="actions/add_cancion_acc.php?pag=<?= $pag ?>" method="POST">
                     <div class="col-6 mb-3">
                         <label class="form-label" for="titulo">Título:</label>
                         <input class="form-control" type="text" name="titulo" id="titulo" required>
@@ -24,7 +28,7 @@ $albumes = (new Album())->todos_los_albumes();
                         </select>
                     </div>
                     <button class="btn btn-primary" type="submit">Cargar Canción</button>
-                    <a class="btn btn-danger" href="index.php?sec=admin_canciones">Volver</a>
+                    <a class="btn btn-danger" href="index.php?sec=admin_canciones&pag=<?= $pag ?>">Volver</a>
                 </form>
             </div>
         </div>

@@ -14,9 +14,11 @@ class Autenticacion {
                 $_SESSION["loggedIn"] = $datosLogin;
                 return TRUE;
             }else{
+                (new Alerta())->add_alerta("danger", "La contraseña ingresada no es correcta.");
                 return FALSE;
             }
         }else{
+            (new Alerta())->add_alerta("warning", "El usuario ingresado no existe en la base de datos");
             return FALSE;
         }
     }

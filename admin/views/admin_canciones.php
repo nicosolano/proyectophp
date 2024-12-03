@@ -2,9 +2,10 @@
 
 $canciones = (new Cancion())->todas_las_canciones();
 $pag = $_GET["pag"] ?? 1;
-$paginas = intdiv(count($canciones), 25) + 1;
-$inicio = ($pag - 1) * 25;
-$fin = $inicio + 25;
+$limite = 25;
+$paginas = intdiv(count($canciones), $limite) + 1;
+$inicio = ($pag - 1) * $limite;
+$fin = $inicio + $limite;
 
 ?>
 
@@ -12,6 +13,9 @@ $fin = $inicio + 25;
     <div class="row my-5">
         <div class="col">
             <h1 class="text-center mb-5" style="color: #543310;">Administración de Canciones</h1>
+            <div>
+                <?= (new Alerta())->get_alertas() ?>
+            </div>
             <div class="row mb-5 d-flex justify-content-center align-items-center">
                 <table class="table">
                     <thead>
@@ -26,12 +30,12 @@ $fin = $inicio + 25;
                         <?php for ($inicio; $inicio < $fin; $inicio++) { ?>
                             <?php if(isset($canciones[$inicio])){ ?>
                                 <tr>
-                                    <th scope="row"><?= $canciones[$inicio]->getId() ?></th>
+                                    <th scope="row" id="<?= $canciones[$inicio]->getId() ?>"><?= $canciones[$inicio]->getId() ?></th>
                                     <td><?= $canciones[$inicio]->getTitulo() ?></td>
                                     <td><?= $canciones[$inicio]->getAlbum() ?></td>
                                     <td>
-                                        <a class="btn btn-warning" href="index.php?sec=edit_cancion&id=<?= $canciones[$inicio]->getId() ?>">Editar</a>
-                                        <a class="btn btn-danger" href="index.php?sec=delete_cancion&id=<?= $canciones[$inicio]->getId() ?>">Eliminar</a>
+                                        <a class="btn btn-warning" href="index.php?sec=edit_cancion&pag=<?= $pag ?>&id=<?= $canciones[$inicio]->getId() ?>">Editar</a>
+                                        <a class="btn btn-danger" href="index.php?sec=delete_cancion&pag=<?= $pag ?>&id=<?= $canciones[$inicio]->getId() ?>">Eliminar</a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -45,7 +49,7 @@ $fin = $inicio + 25;
                         </a>
                     <?php } ?>
                 </ul>
-                <a class="btn btn-primary mt-5" href="index.php?sec=add_cancion">Cargar Nueva Canción</a>
+                <a class="btn btn-primary mt-5" href="index.php?sec=add_cancion&pag=<?= $paginas ?>" id="add">Cargar Nueva Canción</a>
             </div>
         </div>
     </div>

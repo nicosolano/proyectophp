@@ -18,7 +18,7 @@ header {
 
 main {
     margin: 0 auto;
-    min-height: 600px;
+    min-height: 540px;
 }
 
 h1 {
@@ -31,11 +31,6 @@ h1 {
     color: #543310;
     border: #74512D 3px solid;
     transition: .3s;
-}
-
-.card:hover {
-    transform-origin: center;
-    transform: scale(108%) ;
 }
 
 footer {

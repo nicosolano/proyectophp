@@ -8,6 +8,9 @@ $albumes = (new Album())->todos_los_albumes();
     <div class="row my-5">
         <div class="col">
             <h1 class="text-center mb-5" style="color: #543310;">Administración de Álbumes</h1>
+            <div>
+                <?= (new Alerta())->get_alertas() ?>
+            </div>
             <div class="row mb-5 d-flex align-items-center">
                 <table class="table">
                     <thead>
@@ -28,7 +31,7 @@ $albumes = (new Album())->todos_los_albumes();
                         <?php foreach($albumes as $a){ ?>
                         <tr>
                             <td><img src="../img/portadas/<?= $a->getPortada() ?>" class="img-fluid rounded" alt='Portada del álbum "<?= $a->getTitulo() ?>"'></td>
-                            <th scope="row"><?= $a->getId() ?></th>
+                            <th scope="row" id="<?= $a->getId() ?>"><?= $a->getId() ?></th>
                             <td><?= $a->getDecada() ?></td>
                             <td><?= $a->getTitulo() ?></td>
                             <td><?= $a->getArtista() ?></td>
@@ -48,7 +51,7 @@ $albumes = (new Album())->todos_los_albumes();
                         <?php } ?>
                     </tbody>
                 </table>
-                <a class="btn btn-primary mt-5" href="index.php?sec=add_album">Cargar Nuevo Álbum</a>
+                <a class="btn btn-primary mt-5" href="index.php?sec=add_album" id="add">Cargar Nuevo Álbum</a>
             </div>
         </div>
     </div>
