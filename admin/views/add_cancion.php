@@ -1,6 +1,7 @@
 <?php
 
 $pag = $_GET["pag"] ?? 1;
+$id_album = $_GET["id_album"] ?? FALSE;
 $albumes = (new Album())->todos_los_albumes();
 
 ?>
@@ -23,12 +24,12 @@ $albumes = (new Album())->todos_los_albumes();
                         <select class="form-select" name="id_album" id="id_album" required>
                             <option value="" selected disabled>Elija una opción</option>
                             <?php foreach($albumes as $a){ ?>
-                                <option value="<?= $a->getId() ?>"><?= $a->getTitulo() ?></option>
+                                <option value="<?= $a->getId() ?>" <?= $a->getId() == $id_album ? "selected" : "" ?>><?= $a->getTitulo() ?></option>
                             <?php } ?>
                         </select>
                     </div>
                     <button class="btn btn-primary" type="submit">Cargar Canción</button>
-                    <a class="btn btn-danger" href="index.php?sec=admin_canciones&pag=<?= $pag ?>">Volver</a>
+                    <a class="btn btn-danger" href="index.php?sec=admin_canciones&pag=<?= $pag ?>#add">Volver</a>
                 </form>
             </div>
         </div>
