@@ -58,7 +58,7 @@ $albumes = (new Album())->todos_los_albumes();
         <?php if (count($albumes)) { ?>
             <?php foreach ($albumes as $a) { ?>
                 <div class="col-3">
-                    <div class="card m-3">
+                    <div class="card m-2 w-100">
                         <img src="img/portadas/<?= $a->getPortada() ?>" class="card-img-top" alt='Portada del álbum "<?= $a->getTitulo() ?>"'>
                         <div class="card-body">
                             <h5 class="card-title fw-bold text-center"><?= $a->getTitulo() ?></h5>

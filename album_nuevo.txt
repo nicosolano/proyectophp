@@ -1,0 +1,8 @@
+Título: Sed
+Artista: Callejeros
+Década: 2000
+Lanzamiento: 01-01-2004
+Duración: 00:45:55
+Precio: 36000.00
+Portada: sed.jpg
+Destacado: Sí
