@@ -13,7 +13,7 @@
     </div>
 </div>
 
-<div class="row mt-4 d-flex justify-content-center align-items-center ms-5">
+<div class="row mt-4 d-flex justify-content-start align-items-center ms-5">
     <?php if (count($albumes)) { ?>
         <?php foreach ($albumes as $a) { ?>
             <div class="col-4">

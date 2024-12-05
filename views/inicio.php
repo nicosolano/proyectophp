@@ -54,7 +54,7 @@ $albumes = (new Album())->todos_los_albumes();
 </div>
 
 <div class="container">
-    <div class="row d-flex justify-content-center align-items-center">
+    <div class="row d-flex justify-content-start align-items-center">
         <?php if (count($albumes)) { ?>
             <?php foreach ($albumes as $a) { ?>
                 <div class="col-3">
